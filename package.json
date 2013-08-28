@@ -1,0 +1,27 @@
+{
+  "name": "status",
+  "description": "Personal status page.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Michael Kelly"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Osmose/status.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "undefined/blob/master/LICENSE-MIT"
+    }
+  ],
+  "devDependencies": {
+    "connect": "~2.8.5",
+    "grunt": "~0.4.1",
+    "requirejs": "~2.1.8",
+    "uglify-js": "~2.3.6",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-preprocess": "~2.3.0",
+    "grunt-gh-pages": "~0.7.1"
+  }
+}

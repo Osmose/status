@@ -1,3 +1,0 @@
-fabric
-jinja2
-watchdog
