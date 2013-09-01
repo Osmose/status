@@ -3,13 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>status</title>
+    <!-- @if development -->
+      <!-- Add all your .less includes here. -->
+      <link rel="stylesheet/less" type="text/css" href="static/less/styles.less" />
+
+      <script src="static/components/less.js/dist/less-1.4.2.js"></script>
+    <!-- @endif -->
+    <link rel="stylesheet" href="static/css/styles.css">
   </head>
   <body>
+    <header id="page-header">
+      <div class="container">
+        <h1 id="site-title">status</h1>
+      </div>
+    </header>
     <div class="container"></div>
 
     <!-- @if development -->
-    <script src="js/vendor/requirejs/require.js"></script>
+      <script src="static/components/requirejs/require.js"></script>
     <!-- @endif -->
-    <script src="js/bootstrap.js"></script>
+    <script src="static/js/bootstrap.js"></script>
   </body>
 </html>

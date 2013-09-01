@@ -5,18 +5,27 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         requirejs: {
-            compile: {
+            build: {
                 options: {
-                    appDir: 'src',
-                    dir: 'dist',
-                    mainConfigFile: 'src/js/bootstrap.js',
+                    out: 'dist/static/js/bootstrap.js',
+                    mainConfigFile: 'src/static/js/bootstrap.js',
                     name: 'bootstrap',
                     include: ['almond'],
                     wrap: true,
-                    removeCombined: true,
                     paths: {
-                        almond: path.resolve('bower_components/almond/almond'),
+                        almond: path.resolve('src/static/components/almond/almond'),
                     }
+                }
+            }
+        },
+        less: {
+            build: {
+                options: {
+                    yuicompress: true,
+                    paths: ['src']
+                },
+                files: {
+                    './dist/static/css/styles.css': './src/static/less/styles.less'
                 }
             }
         },
@@ -46,8 +55,6 @@ module.exports = function(grunt) {
         connect()
             .use(connect.static('src'))
             .use(connect.directory('src', {icons: true}))
-            .use('/js/vendor', connect.static('bower_components'))
-            .use('/js/vendor', connect.directory('bower_components', {icons: true}))
             .use(connect.logger())
             .listen(port)
             .on('listening', function() {
@@ -63,9 +70,10 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-preprocess');
     grunt.loadNpmTasks('grunt-gh-pages');
-    grunt.registerTask('build', ['requirejs', 'preprocess:build']);
+    grunt.registerTask('build', ['requirejs:build', 'preprocess:build', 'less:build']);
     grunt.registerTask('deploy', ['build', 'gh-pages']);
     grunt.registerTask('default', ['runserver']);
 };

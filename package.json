@@ -22,6 +22,7 @@
     "uglify-js": "~2.3.6",
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-preprocess": "~2.3.0",
-    "grunt-gh-pages": "~0.7.1"
+    "grunt-gh-pages": "~0.7.1",
+    "grunt-contrib-less": "~0.7.0"
   }
 }

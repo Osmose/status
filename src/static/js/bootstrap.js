@@ -1,7 +1,6 @@
 require.config({
-    baseUrl: 'js',
     paths: {
-        // library: 'vendor/library/library.js',
+        // library: 'static/components/library/library.js',
     }
 });
 
